@@ -1,19 +1,36 @@
-export function Index() {
-  /*
-   * Replace the elements below with your own.
-   *
-   * Note: The corresponding styles are in the ./index.css file.
-   */
-  return (
-    <div className="text-slate-100 bg-gray-50">
-        <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-          <span className="block">Ready to dive in?</span>
-          <span className="block text-indigo-600">
-            Start your free trial today.
-          </span>
-        </h2>
-    </div>
-  );
+import Head from 'next/head';
+import Link from 'next/link';
+import { fromImageToUrl, API_URL } from '../utils/url';
+
+export function Home({products}) {
+    return (
+        <div>
+            <Head>
+                <title>Strapi-Shop!</title>
+            </Head>
+            <div className="w-1/2 flex flex-col my-10 mx-auto space-y-10">
+                {products.map(prod => (
+                    <div key={prod.name} className="flex justify-between">
+                        <Link href={`/products/${prod.slug}`}>
+                            <a>
+                            <div className="rounded-lg object-cover w-1/3"><img src={fromImageToUrl(prod.image)} /> </div>
+                            <div className="font-bold">{prod.name} - {prod.price}</div>
+                            </a>
+                        </Link>
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
 }
 
-export default Index;
+export default Home;
+
+export async function getStaticProps(){
+    //fetch all products
+    const product_rest = await fetch(`${API_URL}/products`);
+    const products = await product_rest.json();
+    return{
+        props:{products}
+    }
+}
