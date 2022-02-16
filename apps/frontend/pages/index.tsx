@@ -2,7 +2,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { fromImageToUrl, API_URL } from '../utils/url';
 
-export function Home({products}) {
+export function Home({ products }) {
     return (
         <div>
             <Head>
@@ -10,11 +10,15 @@ export function Home({products}) {
             </Head>
             <div className="w-1/2 flex flex-col my-10 mx-auto space-y-10">
                 {products.map(prod => (
-                    <div key={prod.name} className="flex justify-between">
+                    <div key={prod.name} className="flex justify-start items-center">
                         <Link href={`/products/${prod.slug}`}>
-                            <a>
-                            <div className="rounded-lg object-cover w-1/3"><img src={fromImageToUrl(prod.image)} /> </div>
-                            <div className="font-bold">{prod.name} - {prod.price}</div>
+                            <a className="rounded-lg object-cover w-1/5">
+                                <img src={fromImageToUrl(prod.image)} />
+                            </a>
+                        </Link>
+                        <Link href={`/products/${prod.slug}`}>
+                            <a className="font-bold ml-5">
+                                {prod.name} - {prod.price}
                             </a>
                         </Link>
                     </div>
@@ -26,11 +30,11 @@ export function Home({products}) {
 
 export default Home;
 
-export async function getStaticProps(){
+export async function getStaticProps() {
     //fetch all products
     const product_rest = await fetch(`${API_URL}/products`);
     const products = await product_rest.json();
-    return{
-        props:{products}
+    return {
+        props: { products }
     }
 }
