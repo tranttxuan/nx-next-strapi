@@ -13,7 +13,7 @@ export function Home({ products }) {
                     <div key={prod.name} className="flex justify-start items-center">
                         <Link href={`/products/${prod.slug}`}>
                             <a className="rounded-lg object-cover w-1/5">
-                                <img src={fromImageToUrl(prod.image)} />
+                                <img alt={prod.name} src={fromImageToUrl(prod.image)} />
                             </a>
                         </Link>
                         <Link href={`/products/${prod.slug}`}>

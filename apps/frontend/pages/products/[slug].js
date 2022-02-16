@@ -4,7 +4,7 @@ const Product = ({product}) => {
     return (
         <div className="flex flex-col pt-5xl my-5 space-y-5">
             <h3 className="prose prose-xl font-bold">{product.name}</h3>
-            <img className="rounded-lg object-cover w-1/3 self-center" src={fromImageToUrl(product.image)} />
+            <img className="rounded-lg object-cover w-1/3 self-center" alt={prod.name} src={fromImageToUrl(product.image)} />
             <h4 className="prose prose-xl font-bold">{product.name}</h4>
             <p>$ {product.price}</p>
             <p>{product.content}</p>

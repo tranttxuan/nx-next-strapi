@@ -7,8 +7,7 @@ function Account() {
     const {user, logoutUser} = useContext(AuthContext);
     if(!user){
         return(
-            <div>
-                <p>Please login or register</p>
+            <div><p>Please login or register</p>
                 <Link href="/login"><a>Go to login</a></Link>
             </div>
         )
