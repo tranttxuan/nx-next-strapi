@@ -14,7 +14,10 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@next-strapi/core": ["libs/core/src/index.ts"],
+      "@next-strapi/modules": ["libs/modules/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
