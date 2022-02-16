@@ -4,9 +4,16 @@ const { join } = require('path');
 module.exports = {
     presets: [require('../../tailwind-workspace-preset.js')],
     purge: [
-        join(__dirname, 'pages/**/*.{js,ts,jsx,tsx}'),
+        join(__dirname, '**/**/*.{js,ts,jsx,tsx}'),
         ...createGlobPatternsForDependencies(__dirname),
     ],
+    content: [
+        "./components/**/*.{js,vue,ts}",
+        "./layouts/**/*.vue",
+        "./pages/**/*.vue",
+        "./plugins/**/*.{js,ts}",
+        "./nuxt.config.{js,ts}",
+      ],
     darkMode: 'media', // or 'media' or 'class'
     mode: 'jit',
     theme: {
