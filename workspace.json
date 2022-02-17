@@ -4,6 +4,8 @@
     "core": "libs/core",
     "frontend": "apps/frontend",
     "frontend-e2e": "apps/frontend-e2e",
+    "infrastructure": "libs/infrastructure",
+    "interface-adapters": "libs/interface-adapters",
     "modules": "libs/modules",
     "strapi": "apps/strapi"
   }

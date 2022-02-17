@@ -54,4 +54,5 @@ export abstract class ValueObject<T> {
     }
     return false;
   }
+  
 }

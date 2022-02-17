@@ -1,6 +1,7 @@
 import { ArgumentInvalidException } from '../../exceptions/argument-invalid.exception';
 import { ArgumentNotProvidedException } from '../../exceptions/argument-not-provided.exception';
 import { Guard } from '../guard';
+import { convertPropsToObject } from '../utils/convert-props-to-object.util';
 import { ID } from '../value-objects/id.value-object';
 
 export interface BaseEntityProps {
@@ -42,6 +43,16 @@ export abstract class Entity<EntityProps> {
       ...this.props,
     };
     return Object.freeze(propsCopy);
+  }
+
+  public toObject(): unknown {
+    const plainProps = convertPropsToObject(this.props);
+
+    const result = {
+      id: this._id.value,
+      ...plainProps,
+    };
+    return Object.freeze(result);
   }
 
 }

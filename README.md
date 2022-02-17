@@ -82,3 +82,8 @@ Visit the [Nx Documentation](https://nx.dev) to learn more.
 `yarn add tailwindcss@latest postcss@latest autoprefixer@latest`
 `cd apps/frontend`
 `npx tailwindcss init -p`
+
+
+# Domain-Driven Hexagon
+
+Mainly based on repository [Domain-Driven Design (DDD)](https://github.com/Sairyss/domain-driven-hexagon#repositories)

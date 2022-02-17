@@ -1,0 +1,23 @@
+{
+  "root": "libs/interface-adapters",
+  "sourceRoot": "libs/interface-adapters/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/interface-adapters/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/interface-adapters"],
+      "options": {
+        "jestConfig": "libs/interface-adapters/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

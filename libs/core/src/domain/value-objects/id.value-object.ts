@@ -8,4 +8,8 @@ export abstract class ID extends ValueObject<string> {
     super({ value });
   }
   protected abstract validate({ value }: DomainPrimitive<string>): void;
+  
+  public get value(): string {
+    return this.props.value;
+  }
 }
